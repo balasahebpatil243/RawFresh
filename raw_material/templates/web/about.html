@@ -1,0 +1,441 @@
+{% load static %}
+{% csrf_token %}
+{% static "" as baseURL %}
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+	<title>RAW Fresh</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<meta name="keywords" content="">
+	<script>
+		addEventListener("load", function () {
+			setTimeout(hideURLbar, 0);
+		}, false);
+
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+	</script>
+	<link href="{% static 'web_css/bootstrap.css' %}" rel='stylesheet' type='text/css' />
+	<link href="{% static 'web_css/login_overlay.css' %}" rel='stylesheet' type='text/css' />
+	<link href="{% static 'web_css/style6.css' %}" rel='stylesheet' type='text/css' />
+	<link rel="stylesheet" href="{% static 'web_css/shop.css' %}" type="text/css" />
+	<link href="{% static 'web_css/style.css' %}" rel='stylesheet' type='text/css' />
+	<link href="{% static 'web_css/fontawesome-all.css' %}" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Inconsolata:400,700" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800"
+	    rel="stylesheet">
+</head>
+
+<body>
+	<div class="banner-top container-fluid" id="home">
+		<!-- header -->
+		<header>
+			<div class="row">
+				<div class="col-md-3 top-info text-left mt-lg-4">
+					<h6>Need Help</h6>
+					<ul>
+						<li>
+							<i class="fas fa-phone"></i> Call</li>
+						<li class="number-phone mt-3">12345678099</li>
+					</ul>
+				</div>
+				<div class="col-md-6 logo-w3layouts text-center">
+					<h1 class="logo-w3layouts">
+						<a class="navbar-brand" href="/web_index/">
+							<img src="{% static 'images/new/10.png' %}" alt="" class="img-fluid" style="height: 80px;">RAW Fresh </a>
+					</h1>
+				</div>
+
+				<div class="col-md-3 top-info-cart text-right mt-lg-4">
+					Logged In By : <b><span id="userName"></span></b>
+					<ul class="cart-inner-info">
+						<li class="button-log">
+							<a class="btn-open" href="#">
+								<span class="fa fa-user" aria-hidden="true"></span>
+							</a>
+						</li>
+						<li class="galssescart galssescart2 cart cart box_1">
+							<form action="#" method="post" class="last">
+								<input type="hidden" name="cmd" value="_cart">
+								<input type="hidden" name="display" value="1">
+								<a href="/cart/"><button class="top_googles_cart" type="button" name="submit" value="">
+									My Cart
+									<i class="fas fa-cart-arrow-down"></i>
+								</button></a>
+							</form>
+						</li>
+					</ul>
+					<!---->
+					<div class="overlay-login text-left">
+						<button type="button" class="overlay-close1">
+							<i class="fa fa-times" aria-hidden="true"></i>
+						</button>
+						<div class="wrap">
+							<h5 class="text-center mb-4">Login Now</h5>
+							<div class="login p-5 bg-dark mx-auto mw-100">
+								<form action="#" method="post">
+									<div class="form-group">
+										<label class="mb-2">Email address</label>
+										<input type="email" class="form-control" id="txtEmailLogin" aria-describedby="emailHelp" placeholder="" required="">
+										<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+									</div>
+									<div class="form-group">
+										<label class="mb-2">Password</label>
+										<input type="password" class="form-control" id="txtPasswordLogin" placeholder="" required="">
+										<input type="checkbox" id="showPassword"> <label>Show Password</label>
+									</div>
+									<button type="button" class="btn btn-primary submit mb-4" id="btn_login">Sign In</button>
+									<br>
+									<a href="/web_forgot_password/">Forgot Password?</a>
+									<br><br><center><label style="color:white;">---------------- Or ----------------</label></center>							<br><center><a href="/register/"><button type="button" class="btn btn-primary submit mb-4">Register Here</button></a> </center>
+
+								</form>
+							</div>
+							<!---->
+						</div>
+					</div>
+					<!---->
+				</div>
+			</div>
+			
+			<label class="top-log mx-auto"></label>
+			<nav class="navbar navbar-expand-lg navbar-light bg-light top-header mb-2">
+
+				<button class="navbar-toggler mx-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+				    aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon">
+						
+					</span>
+				</button>
+				
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav nav-mega mx-auto">
+						<li class="nav-item ">
+							<a class="nav-link ml-lg-0" href="/web_index/">Home
+								<span class="sr-only">(current)</span>
+							</a>
+						</li>
+
+						<li class="nav-item active">
+							<a class="nav-link" href="/about/">About</a>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link" href="/shop/">shop</a>
+						</li>
+						
+						<li class="nav-item">
+							<a class="nav-link" href="/contact/">Contact</a>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link" href="/orders/">My Orders</a>
+						</li>
+						<li class="nav-item" id="logout">
+							<a class="nav-link" href="/web_logout/">Logout</a>
+						</li>
+					</ul>
+
+				</div>
+			</nav>
+		</header>
+		<!-- banner -->
+		<div class="banner_inner">
+			<div class="services-breadcrumb">
+				<div class="inner_breadcrumb">
+
+					<ul class="short">
+						<li>
+							<a href="/web_index/">Home</a>
+							<i>|</i>
+						</li>
+						<li>About Us</li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+		<!--//banner -->
+	</div>
+	<!--// header_top -->
+	<!-- top Products -->
+	<section class="banner-bottom-wthreelayouts py-lg-5 py-3">
+		<div class="container-fluid">
+
+			<div class="inner-sec-shop px-lg-4 px-3">
+				<div class="about-content py-lg-5 py-3">
+					<div class="row">
+
+						<div class="col-lg-4 p-0">
+							<img src="{% static 'images/aboutraw.jpg' %}" alt="Goggles" class="img-fluid">
+						</div>
+						<div class="col-lg-8 about-info">
+							<h3 class="tittle-w3layouts text-left mb-lg-5 mb-3">About Us</h3>
+							<p class="my-xl-4 my-lg-3 my-md-4 my-3">We often work with raw food producers from around the world. In fact, China, India, the United States, and Brazil are the world's most influential food-producing countries. According to the American Farm Bureau Foundation, the U.S. exported about $135.54 billion in 2019. This includes raw Fresh, such as soybeans, poultry, beef, pork, veal, and processed produce and vegetables.
+							</p>
+
+							<a href="/shop/" class="btn btn-sm animated-button gibson-three mt-4">Shop Now</a>
+
+						</div>
+					</div>
+				</div>
+				<!-- //grids -->
+				<!--/meddle-->
+				<div class="row">
+					<div class="col-md-12 middle-slider my-4">
+						<div class="middle-text-info ">
+
+							<h3 class="tittle-w3layouts two text-center my-lg-4 mt-3">Summer Flash sale</h3>
+							<div class="simply-countdown-custom" id="simply-countdown-custom"></div>
+
+						</div>
+					</div>
+				</div>
+
+				<!-- /clients-sec -->
+				<div class="testimonials p-lg-5 p-3 mt-4">
+					<div class="row last-section">
+						<div class="col-lg-3 footer-top-w3layouts-grid-sec">
+							<div class="mail-grid-icon text-center">
+								<i class="fas fa-gift"></i>
+							</div>
+							<div class="mail-grid-text-info">
+								<h3>Genuine Product</h3>
+								<p>Buy all types of branded food products online at best prices.</p>
+							</div>
+						</div>
+						<div class="col-lg-3 footer-top-w3layouts-grid-sec">
+							<div class="mail-grid-icon text-center">
+								<i class="fas fa-shield-alt"></i>
+							</div>
+							<div class="mail-grid-text-info">
+								<h3>Secure Products</h3>
+								<p>Find Healthy Food products and organic foods online in India at the best price with free home delivery</p>
+							</div>
+						</div>
+						<div class="col-lg-3 footer-top-w3layouts-grid-sec">
+							<div class="mail-grid-icon text-center">
+								<i class="fas fa-rupee-sign"></i>
+							</div>
+							<div class="mail-grid-text-info">
+								<h3>Cash on Delivery</h3>
+								<p>Pay only when you get get your raw material at your home step</p>
+							</div>
+						</div>
+						<div class="col-lg-3 footer-top-w3layouts-grid-sec">
+							<div class="mail-grid-icon text-center">
+								<i class="fas fa-truck"></i>
+							</div>
+							<div class="mail-grid-text-info">
+								<h3>Easy Delivery</h3>
+								<p>follow your delivery every step of the way with real-time tracking.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- //clients-sec -->
+
+			</div>
+		</div>
+	</section>
+
+
+	<!--footer -->
+	<footer class="py-lg-5 py-3">
+		<div class="container-fluid px-lg-5 px-3">
+			<div class="row footer-top-w3layouts">
+				<div class="col-lg-4 footer-grid-w3ls">
+					<div class="footer-title">
+						<h3>About Us</h3>
+					</div>
+					<div class="footer-text">
+						<p>Raw Fresh began in 2002 with the vision of providing gourmet groceries to food lovers throughout Australia including Melbourne, Sydney, Brisbane, Adelaide and Perth as well as the Asia Pacific region. All of us at Raw Fresh have been inspired to cook, entertain and enjoy eating exceptional food with outstanding quality and value for money. </p>
+						<ul class="footer-social text-left mt-lg-4 mt-3">
+
+							<li class="mx-2">
+								<a href="#">
+									<span class="fab fa-facebook-f"></span>
+								</a>
+							</li>
+							<li class="mx-2">
+								<a href="#">
+									<span class="fab fa-instagram"></span>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-4 footer-grid-w3ls">
+					<div class="footer-title">
+						<h3>Get in touch</h3>
+					</div>
+					<div class="contact-info">
+						<h4>Location :</h4>
+						<p>A1 Shop Ankli Cross, Chikodi</p>
+						<div class="phone">
+							<h4>Contact :</h4>
+							<p>Phone : +121 098 8907 9987</p>
+							<p>Email :
+								<a href="mailto:info@example.com">info@example.com</a>
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 footer-grid-w3ls">
+					<div class="footer-title">
+						<h3>Quick Links</h3>
+					</div>
+					<ul class="links">
+						<li>
+							<a href="/index/">Home</a>
+						</li>
+						<li class="links active">
+							<a href="/about/">About</a>
+						</li>
+						<li>
+							<a href="/shop/">Shop</a>
+						</li>
+						<li>
+							<a href="/contact/">Contact Us</a>
+						</li>
+					</ul>
+				</div>
+				<!-- <div class="col-lg-3 footer-grid-w3ls">
+					<div class="footer-title">
+						<h3>Sign up for your offers</h3>
+					</div>
+					<div class="footer-text">
+						<p>By subscribing to our mailing list you will always get latest news and updates from us.</p>
+						<form action="#" method="post">
+							<input class="form-control" type="email" name="Email" placeholder="Enter your email..." required="">
+							<button class="btn1">
+								<i class="far fa-envelope" aria-hidden="true"></i>
+							</button>
+							<div class="clearfix"> </div>
+						</form>
+					</div>
+				</div> -->
+			</div>
+			<div class="copyright-w3layouts mt-4">
+				<p class="copy-right text-center ">&copy; 2022 Raw Fresh. All Rights Reserved
+				</p>
+			</div>
+		</div>
+	</footer>
+	<!-- //footer -->
+
+	<!--jQuery-->
+	<script src="{% static 'web_js/jquery-2.2.3.min.js' %}"></script>
+	<!-- newsletter modal -->
+	<!--search jQuery-->
+	<script src="{% static 'web_js/modernizr-2.6.2.min.js' %}"></script>
+	<script src="{% static 'web_js/classie-search.js' %}"></script>
+	<script src="{% static 'web_js/demo1-search.js' %}"></script>
+	<!--//search jQuery-->
+	<!-- cart-js -->
+	<script src="{% static 'web_js/minicart.js' %}"></script>
+	<script>
+		googles.render();
+
+		googles.cart.on('googles_checkout', function (evt) {
+			var items, len, i;
+
+			if (this.subtotal() > 0) {
+				items = this.items();
+
+				for (i = 0, len = items.length; i < len; i++) {}
+			}
+		});
+	</script>
+	<!-- //cart-js -->
+	<script>
+		$(document).ready(function () {
+			$(".button-log a").click(function () {
+				$(".overlay-login").fadeToggle(200);
+				$(this).toggleClass('btn-open').toggleClass('btn-close');
+			});
+		});
+		$('.overlay-close1').on('click', function () {
+			$(".overlay-login").fadeToggle(200);
+			$(".button-log a").toggleClass('btn-open').toggleClass('btn-close');
+			open = false;
+		});
+	</script>
+	<!-- carousel -->
+	<!-- dropdown nav -->
+	<script>
+		$(document).ready(function () {
+			$(".dropdown").hover(
+				function () {
+					$('.dropdown-menu', this).stop(true, true).slideDown("fast");
+					$(this).toggleClass('open');
+				},
+				function () {
+					$('.dropdown-menu', this).stop(true, true).slideUp("fast");
+					$(this).toggleClass('open');
+				}
+			);
+		});
+	</script>
+	<!-- //dropdown nav -->
+	<!-- Count-down -->
+	<script src="{% static 'web_js/simplyCountdown.js' %}"></script>
+	<link href="{% static 'css/simplyCountdown.css' %}" rel='stylesheet' type='text/css' />
+	<script>
+		var d = new Date();
+		simplyCountdown('simply-countdown-custom', {
+			year: d.getFullYear(),
+			month: d.getMonth() + 2,
+			day: 25
+		});
+	</script>
+	<!--// Count-down -->
+	<script src="{% static 'web_js/move-top.js' %}"></script>
+    <script src="{% static 'web_js/easing.js' %}"></script>
+    <script>
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event) {
+                event.preventDefault();
+                $('html,body').animate({
+                    scrollTop: $(this.hash).offset().top
+                }, 900);
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            /*
+            						var defaults = {
+            							  containerID: 'toTop', // fading element id
+            							containerHoverID: 'toTopHover', // fading element hover id
+            							scrollSpeed: 1200,
+            							easingType: 'linear' 
+            						 };
+            						*/
+
+            $().UItoTop({
+                easingType: 'easeOutQuart'
+            });
+
+        });
+    </script>
+    <!--// end-smoth-scrolling -->
+
+
+	<script src="{% static 'web_js/bootstrap.js' %}"></script>
+	<script src="{% static 'web_js/web_login.js' %}"></script>
+	<script src="{% static 'web_js/web_profile.js' %}"></script>
+	<!-- js file -->
+	<script type="text/javascript">
+    $(document).ready(function() {
+        $("#showPassword").change(function(){
+            $(this).prop("checked") ?  $("#txtPasswordLogin").prop("type", "text") : $("#txtPasswordLogin").prop("type", "password");    
+        });
+    });
+</script>
+</body>
+
+</html>

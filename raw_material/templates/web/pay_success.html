@@ -1,0 +1,34 @@
+{% load static %}
+{% csrf_token %}
+{% static "" as baseURL %}
+<!DOCTYPE html>
+<html>
+<head>
+<title>RAW Fresh - Thank You</title>
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+    <link href="{% static 'web_css/bootstrap.css' %}" rel='stylesheet' type='text/css' />
+    <script src="{% static 'web_js/jquery-2.2.3.min.js' %}"></script>
+
+</head>
+<body class="">
+<main>
+    <section class="mb-3 d-flex text-center" style="height: 100vh; background-color: #2d6622;">
+        <div class="container d-flex m-auto">
+            <div class="row w-100 mb-2">
+                <div class="col-12">
+                <h2 class="text-white pb-4">Thank you for Purchasing!!!</h2>
+
+                <a class="btn btn-warning mb-2" href="/web_index/">
+                    Go to home page
+                    <i class="fa fa-window-restore"></i>
+                </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+</body>
+</html>

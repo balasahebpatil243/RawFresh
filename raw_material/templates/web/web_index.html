@@ -1,0 +1,706 @@
+{% load static %}
+{% csrf_token %}
+{% static "" as baseURL %}
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+	<title>HOME | RAW FRESH</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<meta name="keywords" content="">
+	<script>
+		addEventListener("load", function () {
+			setTimeout(hideURLbar, 0);
+		}, false);
+
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+	</script>
+	<link href="{% static 'web_css/bootstrap.css' %}" rel='stylesheet' type='text/css' />
+	<link href="{% static 'web_css/login_overlay.css' %}" rel='stylesheet' type='text/css' />
+	<link href="{% static 'web_css/style6.css' %}" rel='stylesheet' type='text/css' />
+	<link rel="stylesheet" href="{% static 'web_css/shop.css' %}" type="text/css" />
+	<link rel="stylesheet" href="{% static 'web_css/owl.carousel.css' %}" type="text/css" media="all">
+	<link rel="stylesheet" href="{% static 'web_css/owl.theme.css' %}" type="text/css" media="all">
+	<link href="{% static 'web_css/style.css' %}" rel='stylesheet' type='text/css' />
+	<link href="{% static 'web_css/fontawesome-all.css' %}" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Inconsolata:400,700" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800"
+	    rel="stylesheet">
+</head>
+
+<body>
+	<div class="banner-top container-fluid" id="home">
+		<!-- header -->
+		<header>
+			<div class="row">
+				<div class="col-md-3 top-info text-left mt-lg-4">
+					<h6>Need Help</h6>
+					<ul>
+						<li>
+							<i class="fas fa-phone"></i> Call</li>
+						<li class="number-phone mt-3">12345678099</li>
+					</ul>
+				</div>
+				<div class="col-md-6 logo-w3layouts text-center">
+					<h1 class="logo-w3layouts">
+						<a class="navbar-brand" href="/web_index/">
+							<img src="{% static 'images/new/10.png' %}" alt="" class="img-fluid" style="height: 80px;">RAW FRESH </a>
+					</h1>
+				</div>
+
+				<div class="col-md-3 top-info-cart text-right mt-lg-4">
+					Logged In By : <b><span id="userName"></span></b>
+					<ul class="cart-inner-info">
+						<li class="button-log">
+							<a class="btn-open" href="#">
+								<span class="fa fa-user" aria-hidden="true"> Login </span>
+							</a>
+						</li>
+						<li class="galssescart galssescart2 cart cart box_1">
+							<form action="#" method="post" class="last">
+								<input type="hidden" name="cmd" value="_cart">
+								<input type="hidden" name="display" value="1">
+								<a href="/cart/"><button class="top_googles_cart" type="button" name="submit" value="">
+									My Cart
+									<i class="fas fa-cart-arrow-down"></i>
+								</button></a>
+							</form>
+						</li>
+					</ul>
+					<!---->
+					<div class="overlay-login text-left">
+						<button type="button" class="overlay-close1">
+							<i class="fa fa-times" aria-hidden="true"></i>
+						</button>
+						<div class="wrap">
+							<h5 class="text-center mb-4">Login Now</h5>
+							<div class="login p-5 bg-dark mx-auto mw-100">
+								<form action="#" method="post">
+									<div class="form-group">
+										<label class="mb-2">Email address</label>
+										<input type="email" class="form-control" id="txtEmailLogin" aria-describedby="emailHelp" placeholder="" required="">
+										<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+									</div>
+									<div class="form-group">
+										<label class="mb-2">Password</label>
+										<input type="password" class="form-control" id="txtPasswordLogin" placeholder="" required="">
+										<input type="checkbox" id="showPassword"> <label>Show Password</label>
+									</div>
+									<button type="button" class="btn btn-primary submit mb-4" id="btn_login">Sign In</button>
+									<br>
+									<a href="/web_forgot_password/">Forgot Password?</a>
+									<br><br><center><label style="color:white;">---------------- Or ----------------</label></center>							<br><center><a href="/register/"><button type="button" class="btn btn-primary submit mb-4">Register Here</button></a> </center>
+
+								</form>
+							</div>
+							<!---->
+						</div>
+					</div>
+					<!---->
+				</div>
+			</div>
+			<label class="top-log mx-auto"></label>
+			<nav class="navbar navbar-expand-lg navbar-light bg-light top-header mb-2">
+
+				<button class="navbar-toggler mx-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+				    aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon">
+						
+					</span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav nav-mega mx-auto">
+						<li class="nav-item active">
+							<a class="nav-link ml-lg-0" href="/web_index/">Home
+								<span class="sr-only">(current)</span>
+							</a>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link" href="/about/">About</a>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link" href="/shop/">shop</a>
+						</li>
+						
+						<li class="nav-item">
+							<a class="nav-link" href="/contact/">Contact</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/orders/">My Orders</a>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link" href="/index/">Admin</a>
+						</li>
+
+						<li class="nav-item" id="logout">
+							<a class="nav-link" href="/web_logout/">Logout</a>
+						</li>
+					</ul>
+
+				</div>
+			</nav>
+		</header>
+		<!-- //header -->
+		<!-- banner -->
+		<div class="banner">
+			<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+				<ol class="carousel-indicators">
+					<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+					<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+					<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+					<li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+				</ol>
+				<div class="carousel-inner" role="listbox">
+					<div class="carousel-item active">
+						<div class="carousel-caption text-center">
+							<h3>Raw Fresh
+								<span>Cool summer sale 50% off</span>
+							</h3>
+							<a href="/shop/" class="btn btn-sm animated-button gibson-three mt-4">Shop Now</a>
+						</div>
+					</div>
+					<div class="carousel-item item2">
+						<div class="carousel-caption text-center">
+							<h3>Raw Fresh
+								<span>Want to Cook Your Best?</span>
+							</h3>
+							<a href="/shop/" class="btn btn-sm animated-button gibson-three mt-4">Shop Now</a>
+
+						</div>
+					</div>
+					<div class="carousel-item item3">
+						<div class="carousel-caption text-center ">
+							<h3>Raw Fresh
+								<span>Cool summer sale 50% off</span>
+							</h3>
+							<a href="/shop/" class="btn btn-sm animated-button gibson-three mt-4 ">Shop Now</a>
+
+						</div>
+					</div>
+					<div class="carousel-item item4">
+						<div class="carousel-caption text-center">
+							<h3>Raw Fresh
+								<span>Want to Cook Your Best?</span>
+							</h3>
+							<a href="/shop/" class="btn btn-sm animated-button gibson-three mt-4">Shop Now</a>
+						</div>
+					</div>
+				</div>
+				<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="sr-only">Previous</span>
+				</a>
+				<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="sr-only">Next</span>
+				</a>
+			</div>
+			<!--//banner -->
+		</div>
+	</div>
+	<!--//banner-sec-->
+	<section class="banner-bottom-wthreelayouts py-lg-5 py-3">
+		<div class="container-fluid">
+			<div class="inner-sec-shop px-lg-4 px-3">
+				<h3 class="tittle-w3layouts my-lg-4 my-4">New Arrivals for you </h3>
+				<div class="row" id="new">
+
+				</div>
+				<!-- //womens -->
+				
+				<!--/meddle-->
+				<div class="row">
+					<div class="col-md-12 middle-slider my-4">
+						<div class="middle-text-info ">
+
+							<h3 class="tittle-w3layouts two text-center my-lg-4 mt-3">Summer Flash sale</h3>
+							<div class="simply-countdown-custom" id="simply-countdown-custom"></div>
+
+						</div>
+					</div>
+				</div>
+				<!--//meddle-->
+				<!--/slide-->
+				<div class="slider-img mid-sec">
+					<!--//banner-sec-->
+					<div class="mid-slider">
+						<div class="owl-carousel owl-theme row" id="slider">
+
+						</div>
+					</div>
+				</div>
+				<!-- /testimonials -->
+				<div class="testimonials py-lg-4 py-3 mt-4">
+					<div class="testimonials-inner py-lg-4 py-3">
+						<h3 class="tittle-w3layouts text-center my-lg-4 my-4">Testimonials</h3>
+						<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+							<div class="carousel-inner" role="listbox">
+								<div class="carousel-item active">
+									<div class="testimonials_grid text-center">
+										<!-- <h3>Anamaria
+											<span>Customer</span>
+										</h3> -->
+										<!-- <label>United States</label> -->
+										<p>Thank you for your food. It’s so fresh and delicious and it takes the work and guess-work out of my busy life when it comes to eating. Awesome Foods is AWESOME! You have a customer for life!</p>
+									</div>
+								</div>
+								<div class="carousel-item">
+									<div class="testimonials_grid text-center">
+										<!-- <h3>Esmeralda
+											<span>Customer</span>
+										</h3>
+										<label>America</label> -->
+										<p>“The Testimonials team is great to work with. We know we can count on them to deliver quality tubing on time, every time.”</p>
+									</div>
+								</div>
+								<div class="carousel-item">
+									<div class="testimonials_grid text-center">
+										<!-- <h3>Gretchen
+											<span>Customer</span>
+										</h3> -->
+										<label>India</label>
+										<p>Just fell in love with the Testimonials! Can’t wait to try more Awesome Foods!! Thank you!!!
+
+										</p>
+									</div>
+								</div>
+								<a class="carousel-control-prev test" href="#carouselExampleControls" role="button" data-slide="prev">
+									<span class="fas fa-long-arrow-alt-left"></span>
+									<span class="sr-only">Previous</span>
+								</a>
+								<a class="carousel-control-next test" href="#carouselExampleControls" role="button" data-slide="next">
+									<span class="fas fa-long-arrow-alt-right" aria-hidden="true"></span>
+									<span class="sr-only">Next</span>
+
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- //testimonials -->
+				<div class="row galsses-grids pt-lg-5 pt-3">
+					<div class="col-lg-6 galsses-grid-left">
+						<figure class="effect-lexi">
+							<img src="{% static 'images/new/8.jpg' %}" alt="" class="img-fluid">
+						</figure>
+					</div>
+					<div class="col-lg-6 galsses-grid-left">
+						<figure class="effect-lexi">
+							<img src="{% static 'images/new/7.jpg' %}" alt="" class="img-fluid" style="height: 358px;">
+						</figure>
+					</div>
+				</div>
+				<!-- /grids -->
+				<div class="bottom-sub-grid-content py-lg-5 py-3">
+					<div class="row">
+						<div class="col-lg-4 bottom-sub-grid text-center">
+							<div class="bt-icon">
+
+								<span class="far fa-hand-paper"></span>
+							</div>
+
+							<h4 class="sub-tittle-w3layouts my-lg-4 my-3">Satisfaction </h4>
+							<p>We proudly stand behind the quality products that we sell. If you are not completely satisfied with a product purchased directly from Raw Material.com</p>
+							<p>
+								<a href="/shop/" class="btn btn-sm animated-button gibson-three mt-4">Shop Now</a>
+							</p>
+						</div>
+						<!-- /.col-lg-4 -->
+						<div class="col-lg-4 bottom-sub-grid text-center">
+							<div class="bt-icon">
+								<span class="fas fa-rocket"></span>
+							</div>
+
+							<h4 class="sub-tittle-w3layouts my-lg-4 my-3">Fast Shipping</h4>
+							<p>Fastway Express is an exclusive courier & cargo service provider for sending all types of Food items, House hold goods abroad to all countries like USA, UK,</p>
+							<p>
+								<a href="/shop/" class="btn btn-sm animated-button gibson-three mt-4">Shop Now</a>
+							</p>
+						</div>
+						<!-- /.col-lg-4 -->
+						<div class="col-lg-4 bottom-sub-grid text-center">
+							<div class="bt-icon">
+								<span class="far fa-sun"></span>
+							</div>
+
+							<h4 class="sub-tittle-w3layouts my-lg-4 my-3">Customer Services</h4>
+							<p>We are here to provide best customer service for 24/7 . we help you to make food choices and give customers compliments</p>
+							<p>
+								<br>
+								<a href="/shop/" class="btn btn-sm animated-button gibson-three mt-4">Shop Now</a>
+							</p>
+						</div>
+						<!-- /.col-lg-4 -->
+					</div>
+				</div>
+				<!-- //grids -->
+				<!-- /clients-sec -->
+				<div class="testimonials p-lg-5 p-3 mt-4">
+					<div class="row last-section">
+						<div class="col-lg-3 footer-top-w3layouts-grid-sec">
+							<div class="mail-grid-icon text-center">
+								<i class="fas fa-gift"></i>
+							</div>
+							<div class="mail-grid-text-info">
+								<h3>Genuine Product</h3>
+								<p>Buy all types of branded food products online at best prices.</p>
+							</div>
+						</div>
+						<div class="col-lg-3 footer-top-w3layouts-grid-sec">
+							<div class="mail-grid-icon text-center">
+								<i class="fas fa-shield-alt"></i>
+							</div>
+							<div class="mail-grid-text-info">
+								<h3>Secure Products</h3>
+								<p>Find Healthy Food products and organic foods online in India at the best price with free home delivery</p>
+							</div>
+						</div>
+						<div class="col-lg-3 footer-top-w3layouts-grid-sec">
+							<div class="mail-grid-icon text-center">
+								<i class="fas fa-rupee-sign"></i>
+							</div>
+							<div class="mail-grid-text-info">
+								<h3>Cash on Delivery</h3>
+								<p>Pay only when you get get your raw material at your home step</p>
+							</div>
+						</div>
+						<div class="col-lg-3 footer-top-w3layouts-grid-sec">
+							<div class="mail-grid-icon text-center">
+								<i class="fas fa-truck"></i>
+							</div>
+							<div class="mail-grid-text-info">
+								<h3>Easy Delivery</h3>
+								<p>follow your delivery every step of the way with real-time tracking.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- //clients-sec -->
+			</div>
+		</div>
+	</section>
+	<!-- about -->
+	<!--footer -->
+	<footer class="py-lg-5 py-3">
+		<div class="container-fluid px-lg-5 px-3">
+			<div class="row footer-top-w3layouts">
+				<div class="col-lg-4 footer-grid-w3ls">
+					<div class="footer-title">
+						<h3>About Us</h3>
+					</div>
+					<div class="footer-text">
+						<p>CRaw Fresh began in 2002 with the vision of providing gourmet groceries to food lovers throughout Australia including Melbourne, Sydney, Brisbane, Adelaide and Perth as well as the Asia Pacific region. All of us at Raw Fresh have been inspired to cook, entertain and enjoy eating exceptional food with outstanding quality and value for money. </p>
+						<ul class="footer-social text-left mt-lg-4 mt-3">
+
+							<li class="mx-2">
+								<a href="#">
+									<span class="fab fa-facebook-f"></span>
+								</a>
+							</li>
+							<li class="mx-2">
+								<a href="#">
+									<span class="fab fa-instagram"></span>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-4 footer-grid-w3ls">
+					<div class="footer-title">
+						<h3>Get in touch</h3>
+					</div>
+					<div class="contact-info">
+						<h4>Location :</h4>
+						<p>Rawfresh Shop, Chikodi</p>
+						<div class="phone">
+							<h4>Contact :</h4>
+							<p>Phone : +121 098 8907 9987</p>
+							<p>Email :
+								<a href="mailto:info@example.com">info@example.com</a>
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 footer-grid-w3ls">
+					<div class="footer-title">
+						<h3>Quick Links</h3>
+					</div>
+					<ul class="links">
+						<li>
+							<a href="/index/">Home</a>
+						</li>
+						<li>
+							<a href="/about/">About</a>
+						</li>
+						<li>
+							<a href="/shop/">Shop</a>
+						</li>
+						<li>
+							<a href="/contact/">Contact Us</a>
+						</li>
+					</ul>
+				</div>
+				<!-- <div class="col-lg-3 footer-grid-w3ls">
+					<div class="footer-title">
+						<h3>Sign up for your offers</h3>
+					</div>
+					<div class="footer-text">
+						<p>By subscribing to our mailing list you will always get latest news and updates from us.</p>
+						<form action="#" method="post">
+							<input class="form-control" type="email" name="Email" placeholder="Enter your email..." required="">
+							<button class="btn1">
+								<i class="far fa-envelope" aria-hidden="true"></i>
+							</button>
+							<div class="clearfix"> </div>
+						</form>
+					</div>
+				</div> -->
+			</div>
+			<div class="copyright-w3layouts mt-4">
+				<p class="copy-right text-center ">&copy; 2022 Raw Fresh. All Rights Reserved
+				</p>
+			</div>
+		</div>
+	</footer>
+	<!-- //footer -->
+
+	<!--jQuery-->
+	<script src="{% static 'web_js/jquery-2.2.3.min.js' %}"></script>
+	<!-- newsletter modal -->
+	<!-- Modal -->
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body text-center p-5 mx-auto mw-100">
+					<h6>Join our newsletter and get</h6>
+					<h3>50% Off for your first Pair of Eye wear</h3>
+					<div class="login newsletter">
+						<form action="#" method="post">
+							<div class="form-group">
+								<label class="mb-2">Email address</label>
+								<input type="email" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp" placeholder="" required="">
+							</div>
+							<button type="submit" class="btn btn-primary submit mb-4">Get 50% Off</button>
+						</form>
+						<p class="text-center">
+							<a href="#">No thanks I want to pay full Price</a>
+						</p>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<script>
+		$(document).ready(function () {
+			// $("#myModal").modal();
+		});
+	</script>
+	<!-- // modal -->
+
+	<!--search jQuery-->
+	<script src="{% static 'web_js/modernizr-2.6.2.min.js' %}"></script>
+	<script src="{% static 'web_js/classie-search.js' %}"></script>
+	<script src="{% static 'web_js/demo1-search.js' %}"></script>
+	<!--//search jQuery-->
+	<!-- cart-js -->
+	<script src="{% static 'web_js/minicart.js' %}"></script>
+	<script>
+		googles.render();
+
+		googles.cart.on('googles_checkout', function (evt) {
+			var items, len, i;
+
+			if (this.subtotal() > 0) {
+				items = this.items();
+
+				for (i = 0, len = items.length; i < len; i++) {}
+			}
+		});
+	</script>
+	<!-- //cart-js -->
+	<script>
+		$(document).ready(function () {
+			$(".button-log a").click(function () {
+				$(".overlay-login").fadeToggle(200);
+				$(this).toggleClass('btn-open').toggleClass('btn-close');
+			});
+		});
+		$('.overlay-close1').on('click', function () {
+			$(".overlay-login").fadeToggle(200);
+			$(".button-log a").toggleClass('btn-open').toggleClass('btn-close');
+			open = false;
+		});
+	</script>
+	<!-- carousel -->
+	<!-- Count-down -->
+	<script src="{% static 'web_js/simplyCountdown.js' %}"></script>
+	<link href="{% static 'web_css/simplyCountdown.css' %}" rel='stylesheet' type='text/css' />
+	<script>
+		var d = new Date();
+		simplyCountdown('simply-countdown-custom', {
+			year: d.getFullYear(),
+			month: d.getMonth() + 2,
+			day: 25
+		});
+	</script>
+	<!--// Count-down -->
+	<script src="{% static 'web_js/owl.carousel.js' %}"></script>
+	<script>
+		
+	</script>
+
+	<!-- //end-smooth-scrolling -->
+
+
+	<!-- dropdown nav -->
+	<script>
+		$(document).ready(function () {
+			$(".dropdown").hover(
+				function () {
+					$('.dropdown-menu', this).stop(true, true).slideDown("fast");
+					$(this).toggleClass('open');
+				},
+				function () {
+					$('.dropdown-menu', this).stop(true, true).slideUp("fast");
+					$(this).toggleClass('open');
+				}
+			);
+		});
+	</script>
+	<!-- //dropdown nav -->
+  	<script src="{% static 'web_js/move-top.js' %}"></script>
+    <script src="{% static 'web_js/easing.js' %}"></script>
+    <script>
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event) {
+                event.preventDefault();
+                $('html,body').animate({
+                    scrollTop: $(this.hash).offset().top
+                }, 900);
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            $().UItoTop({
+                easingType: 'easeOutQuart'
+            });
+
+		  $(window).on("load", function () {
+		    // alert("Hello");
+		    getData();
+		    getSliderData();
+		  });
+
+        });
+    </script>
+
+	<script src="{% static 'web_js/bootstrap.js' %}"></script>
+	<script src="{% static 'web_js/web_login.js' %}"></script>
+	<script src="{% static 'web_js/web_profile.js' %}"></script>
+
+	<script type="text/javascript">
+		function getData() {
+
+			var formData = new FormData();
+  			formData.append("csrfmiddlewaretoken", $('input[name=csrfmiddlewaretoken]').val());
+
+            $.ajax({
+
+              url: "/get_home_details/",
+              type: "POST",
+              data: formData,
+              processData: false,
+              contentType: false,
+              success: function(response) {
+
+                for(var i = 0; i < response.length; i++) {
+                	var imgSub = response[i].ap_image.substring(20);
+
+                	$("#new").append('<div class="col-md-3 product-men women_two"><div class="product-googles-info googles"><div class="men-pro-item"><div class="men-thumb-item"> <img src="{{baseURL}}'+imgSub+'" class="img-fluid" alt=""><div class="men-cart-pro"><div class="inner-men-cart-pro"> <a href="/single?id='+response[i].ap_id+'" class="link-product-add-cart">Quick View</a></div></div> <span class="product-new-top">New</span></div><div class="item-info-product"><div class="info-product-price"><div class="grid_meta"><div class="product_price"><h4> <a href="/single?id='+response[i].ap_id+'">'+response[i].ap_name+'</a></h4><span style="color: red;">'+response[i].ap_created_name+'</span><div class="grid-price mt-2"> <span class="money ">₹'+response[i].ap_rate+'</span></div></div></div></div><div class="clearfix"></div></div></div></div></div>');
+                }
+
+              }
+
+            });
+		}
+
+		function getSliderData() {
+
+			var formData = new FormData();
+  			formData.append("csrfmiddlewaretoken", $('input[name=csrfmiddlewaretoken]').val());
+
+            $.ajax({
+
+              url: "/get_home_slider/",
+              type: "POST",
+              data: formData,
+              processData: false,
+              contentType: false,
+              success: function(response) {
+
+                // var lclJSON = JSON.parse(response);
+
+                for(var i = 0; i < response.length; i++) {
+                	var imgSub = response[i].ap_image.substring(20);
+                	// alert(lclImage);
+                	$("#slider").append('<div class="item"><div class="gd-box-info text-center"><div class="product-men women_two bot-gd"><div class="product-googles-info slide-img googles"><div class="men-pro-item"><div class="men-thumb-item"> <img src="{{baseURL}}'+imgSub+'" class="img-fluid" alt="" height="150" width="150"><div class="men-cart-pro"><div class="inner-men-cart-pro"> <a href="/single?id='+response[i].ap_id+'" class="link-product-add-cart">Quick View</a></div></div> <span class="product-new-top">New</span></div><div class="item-info-product"><div class="info-product-price"><div class="grid_meta"><div class="product_price"><h4> <a href="/single?id='+response[i].ap_id+'">'+response[i].ap_name+'</a></h4><span style="color: red;">'+response[i].ap_created_name+'</span><div class="grid-price mt-2"> <span class="money ">₹'+response[i].ap_rate+'</span></div></div></div></div></div></div></div></div></div></div>');
+                }
+
+                $(document).ready(function () {
+					$('.owl-carousel').owlCarousel({
+						loop: true,
+						margin: 10,
+						responsiveClass: true,
+						responsive: {
+							0: {
+								items: 1,
+								nav: true
+							},
+							600: {
+								items: 2,
+								nav: false
+							},
+							900: {
+								items: 3,
+								nav: false
+							},
+							1000: {
+								items: 4,
+								nav: true,
+								loop: false,
+								margin: 20
+							}
+						}
+					})
+				})
+
+              }
+
+            });
+		}
+	</script>
+	<script type="text/javascript">
+    $(document).ready(function() {
+        $("#showPassword").change(function(){
+            $(this).prop("checked") ?  $("#txtPasswordLogin").prop("type", "text") : $("#txtPasswordLogin").prop("type", "password");    
+        });
+    });
+</script>
+</body>
+
+</html>

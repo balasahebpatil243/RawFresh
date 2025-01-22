@@ -1,0 +1,832 @@
+{% load static %}
+{% csrf_token %}
+{% static "" as baseURL %}
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+	<title>RAW Fresh</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<meta name="keywords" content="">
+	<script>
+		addEventListener("load", function () {
+			setTimeout(hideURLbar, 0);
+		}, false);
+
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+	</script>
+	<link href="{% static 'web_css/bootstrap.css' %}" rel='stylesheet' type='text/css' />
+	<link href="{% static 'web_css/login_overlay.css' %}" rel='stylesheet' type='text/css' />
+	<link href="{% static 'web_css/style6.css' %}" rel='stylesheet' type='text/css' />
+	<link rel="stylesheet" href="{% static 'web_css/shop.css' %}" type="text/css" />
+	<link rel="stylesheet" href="{% static 'web_css/owl.carousel.css' %}" type="text/css" media="all">
+	<link rel="stylesheet" href="{% static 'web_css/owl.theme.css' %}" type="text/css" media="all">
+	<link rel="stylesheet" type="text/css" href="{% static 'web_css/jquery-ui1.css' %}">
+	<link href="{% static 'web_css/easy-responsive-tabs.css' %}" rel='stylesheet' type='text/css' />
+	<link rel="stylesheet" href="{% static 'web_css/flexslider.css' %}" type="text/css" media="screen" />
+	<link href="{% static 'web_css/style.css' %}" rel='stylesheet' type='text/css' />
+	<link href="{% static 'web_css/fontawesome-all.css' %}" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Inconsolata:400,700" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800"
+	    rel="stylesheet">
+</head>
+
+<body>
+	<div class="banner-top container-fluid" id="home">
+		<!-- header -->
+		<header>
+			<div class="row">
+				<div class="col-md-3 top-info text-left mt-lg-4">
+					<h6>Need Help</h6>
+					<ul>
+						<li>
+							<i class="fas fa-phone"></i> Call</li>
+						<li class="number-phone mt-3">12345678099</li>
+					</ul>
+				</div>
+				<div class="col-md-6 logo-w3layouts text-center">
+					<h1 class="logo-w3layouts">
+						<a class="navbar-brand" href="/web_index/">
+							<img src="{% static 'images/new/10.png' %}" alt="" class="img-fluid" style="height: 80px;">RAW Fresh </a>
+					</h1>
+				</div>
+
+				<div class="col-md-3 top-info-cart text-right mt-lg-4">
+					Logged In By : <b><span id="userName"></span></b>
+					<ul class="cart-inner-info">
+						<li class="button-log">
+							<a class="btn-open" href="#">
+								<span class="fa fa-user" aria-hidden="true"></span>
+							</a>
+						</li>
+						<li class="galssescart galssescart2 cart cart box_1">
+							<form action="#" method="post" class="last">
+								<input type="hidden" name="cmd" value="_cart">
+								<input type="hidden" name="display" value="1">
+								<a href="/cart/"><button class="top_googles_cart" type="button" name="submit" value="">
+									My Cart
+									<i class="fas fa-cart-arrow-down"></i>
+								</button></a>
+							</form>
+						</li>
+					</ul>
+					<!---->
+					<div class="overlay-login text-left">
+						<button type="button" class="overlay-close1">
+							<i class="fa fa-times" aria-hidden="true"></i>
+						</button>
+						<div class="wrap">
+							<h5 class="text-center mb-4">Login Now</h5>
+							<div class="login p-5 bg-dark mx-auto mw-100">
+								<form action="#" method="post">
+									<div class="form-group">
+										<label class="mb-2">Email address</label>
+										<input type="email" class="form-control" id="txtEmailLogin" aria-describedby="emailHelp" placeholder="" required="">
+										<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+									</div>
+									<div class="form-group">
+										<label class="mb-2">Password</label>
+										<input type="password" class="form-control" id="txtPasswordLogin" placeholder="" required="">
+									</div>
+									<button type="button" class="btn btn-primary submit mb-4" id="btn_login">Sign In</button>
+
+								</form>
+							</div>
+							<!---->
+						</div>
+					</div>
+					<!---->
+				</div>
+			</div>
+			
+			<label class="top-log mx-auto"></label>
+			<nav class="navbar navbar-expand-lg navbar-light bg-light top-header mb-2">
+
+				<button class="navbar-toggler mx-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+				    aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon">
+						
+					</span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav nav-mega mx-auto">
+						<li class="nav-item active">
+							<a class="nav-link ml-lg-0" href="/web_index/">Home
+								<span class="sr-only">(current)</span>
+							</a>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link" href="/about/">About</a>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link" href="/shop/">shop</a>
+						</li>
+						
+						<li class="nav-item">
+							<a class="nav-link" href="/contact/">Contact</a>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link" href="/orders/">My Orders</a>
+						</li>
+					</ul>
+
+				</div>
+			</nav>
+		</header>
+		<!-- banner -->
+		<div class="banner_inner">
+			<div class="services-breadcrumb">
+				<div class="inner_breadcrumb">
+
+					<ul class="short">
+						<li>
+							<a href="/web_index/">Home</a>
+							<i>|</i>
+						</li>
+						<li>Product Page</li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+		
+	</div>
+		<!--//banner -->
+		<!--/shop-->
+		<section class="banner-bottom-wthreelayouts py-lg-5 py-3">
+			<div class="container">
+				<div class="inner-sec-shop pt-lg-4 pt-3">
+					<div class="row">
+							<div class="col-lg-4 single-right-left ">
+									<div class="grid images_3_of_2">
+										<div class="flexslider1" id="imageDiv">
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-8 single-right-left simpleCart_shelfItem">
+									<h3 id="productName">Product Name</h3>
+									<h4 id="vendorName">Product Name</h4>
+									<p><span class="item_price" id="productPrice">₹0.00</span>
+										<del>₹0.00</del>
+									</p>
+
+									<div class="color-quality">
+										<div class="color-quality-right">
+											<h5>Quantity :</h5>
+											<select id="selQTY" class="frm-field required sect">
+													<option value="1">1 KG</option>
+													<option value="2">2 KG</option> 
+													<option value="3">3 KG</option>					
+													<option value="4">4 KG</option>
+													<option value="5">5 KG</option>
+													<option value="6">6 KG</option> 
+													<option value="7">7 KG</option>					
+													<option value="8">8 KG</option>								
+													<option value="9">9 KG</option>								
+													<option value="10">10 KG</option>								
+												</select>
+										</div>
+									</div>
+
+									<p><span class="item_price" id="txtTotalAmt">₹0.00</span>
+										
+									</p>
+
+									<div class="occasion-cart">
+											<div class="googles single-item singlepage">
+													<form action="#" method="post">
+														<input type="hidden" name="cmd" value="_cart">
+														<input type="hidden" name="add" value="1">
+														<input type="hidden" name="googles_item" value="Farenheit">
+														<input type="hidden" name="amount" value="575.00">
+														<button type="button" class="googles-cart pgoogles-cart" id="cart">
+															Add to Cart
+														</button>
+
+														<button type="button" class="googles-cart pgoogles-cart" id="checkout">
+															Buy Now
+														</button>
+														
+													</form>
+		
+												</div>
+										</div>
+										<ul class="footer-social text-left mt-lg-4 mt-3">
+											<li>Share On : </li>
+											<li class="mx-2">
+												<a href="#">
+													<span class="fab fa-facebook-f"></span>
+												</a>
+											</li>
+											<li class="mx-2">
+												<a href="#">
+													<span class="fab fa-instagram"></span>
+												</a>
+											</li>
+											
+										</ul>
+			
+								</div>
+								<div class="clearfix"> </div>
+								<!--/tabs-->
+								<div class="responsive_tabs">
+									<div id="horizontalTab">
+										<ul class="resp-tabs-list">
+											<li>Description</li>
+											<li>Reviews</li>
+											<li style="display: none;">Information</li>
+										</ul>
+										<div class="resp-tabs-container">
+											<!--/tab_one-->
+											<div class="tab1">
+					
+												<div class="single_page" id="description">
+													
+												</div>
+											</div>
+											<!--//tab_one-->
+											<div class="tab2">
+					
+												<div class="single_page">
+													<div class="bootstrap-tab-text-grids">
+														<div class="bootstrap-tab-text-grid">
+															<div class="bootstrap-tab-text-grid-right" id="review">
+																
+																
+															</div>
+															<div class="clearfix"> </div>
+														</div>
+														<div class="add-review">
+															<h4>add a review</h4>
+															<form action="#" method="post">
+																<input class="form-control" type="text" name="Name" placeholder="Enter your email..." id="txtName" onkeypress="return alphaOnly(event);">
+																<input class="form-control" type="email" id="txtEmail" name="Email" placeholder="Enter your email..." required="">
+																<textarea name="Message" required="" id="txtMessage"></textarea>
+																<button type="button" class="googles-cart pgoogles-cart" id="btn_submit" style="background-color: black; color: white;">
+																	Submit
+																</button>
+																
+															</form>
+														</div>
+													</div>
+					
+												</div>
+											</div>
+											<div class="tab3" style="display: none;">
+					
+												<div class="single_page">
+													<h6>Irayz Butterfly Sunglasses  (Black)</h6>
+													<p>Lorem ipsum dolor sit amet, consectetur adipisicing elPellentesque vehicula augue eget nisl ullamcorper, molestie
+														blandit ipsum auctor. Mauris volutpat augue dolor.Consectetur adipisicing elit, sed do eiusmod tempor incididunt
+														ut lab ore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco. labore et dolore
+														magna aliqua.</p>
+													<p class="para">Lorem ipsum dolor sit amet, consectetur adipisicing elPellentesque vehicula augue eget nisl ullamcorper, molestie
+														blandit ipsum auctor. Mauris volutpat augue dolor.Consectetur adipisicing elit, sed do eiusmod tempor incididunt
+														ut lab ore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco. labore et dolore
+														magna aliqua.</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!--//tabs-->
+					
+					</div>
+				</div>
+			</div>
+				<div class="container-fluid">
+					<!--/slide-->
+					<div class="slider-img mid-sec mt-lg-5 mt-2 px-lg-5 px-3">
+						<!--//banner-sec-->
+						<h3 class="tittle-w3layouts text-left my-lg-4 my-3">Featured Products</h3>
+						<div class="mid-slider">
+							<div class="owl-carousel owl-theme row" id="slider">
+							</div>
+						</div>
+					</div>
+					<!--//slider-->
+				</div>
+		</section>
+		<!--footer -->
+		<footer class="py-lg-5 py-3">
+		<div class="container-fluid px-lg-5 px-3">
+			<div class="row footer-top-w3layouts">
+				<div class="col-lg-3 footer-grid-w3ls">
+					<div class="footer-title">
+						<h3>About Us</h3>
+					</div>
+					<div class="footer-text">
+						<p>Curabitur non nulla sit amet nislinit tempus convallis quis ac lectus. lac inia eget consectetur sed, convallis at
+							tellus. Nulla porttitor accumsana tincidunt.</p>
+						<ul class="footer-social text-left mt-lg-4 mt-3">
+
+							<li class="mx-2">
+								<a href="#">
+									<span class="fab fa-facebook-f"></span>
+								</a>
+							</li>
+							<li class="mx-2">
+								<a href="#">
+									<span class="fab fa-instagram"></span>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-3 footer-grid-w3ls">
+					<div class="footer-title">
+						<h3>Get in touch</h3>
+					</div>
+					<div class="contact-info">
+						<h4>Location :</h4>
+						<p>A1 Shop Rpd Cross, Belagavi</p>
+						<div class="phone">
+							<h4>Contact :</h4>
+							<p>Phone : +121 098 8907 9987</p>
+							<p>Email :
+								<a href="mailto:info@example.com">info@example.com</a>
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 footer-grid-w3ls">
+					<div class="footer-title">
+						<h3>Quick Links</h3>
+					</div>
+					<ul class="links">
+						<li>
+							<a href="/index/">Home</a>
+						</li>
+						<li>
+							<a href="/about/">About</a>
+						</li>
+						<li>
+							<a href="/shop/">Shop</a>
+						</li>
+						<li>
+							<a href="/contact/">Contact Us</a>
+						</li>
+					</ul>
+				</div>
+				<div class="col-lg-3 footer-grid-w3ls">
+					<div class="footer-title">
+						<h3>Sign up for your offers</h3>
+					</div>
+					<div class="footer-text">
+						<p>By subscribing to our mailing list you will always get latest news and updates from us.</p>
+						<form action="#" method="post">
+							<input class="form-control" type="email" name="Email" placeholder="Enter your email..." required="">
+							<button class="btn1">
+								<i class="far fa-envelope" aria-hidden="true"></i>
+							</button>
+							<div class="clearfix"> </div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="copyright-w3layouts mt-4">
+				<p class="copy-right text-center ">&copy; 2022 Raw Fresh. All Rights Reserved
+				</p>
+			</div>
+		</div>
+	</footer>
+		<!-- //footer -->
+
+		<!--jQuery-->
+		<script src="{% static 'web_js/jquery-2.2.3.min.js' %}"></script>
+		<!-- newsletter modal -->
+		<!--search jQuery-->
+		<script src="{% static 'web_js/modernizr-2.6.2.min.js' %}"></script>
+		<script src="{% static 'web_js/classie-search.js' %}"></script>
+		<script src="{% static 'web_js/demo1-search.js' %}"></script>
+		<!--//search jQuery-->
+		<!-- cart-js -->
+		<script src="{% static 'web_js/minicart.js' %}"></script>
+		<script>
+			googles.render();
+
+			googles.cart.on('googles_checkout', function (evt) {
+				var items, len, i;
+
+				if (this.subtotal() > 0) {
+					items = this.items();
+
+					for (i = 0, len = items.length; i < len; i++) {}
+				}
+			});
+		</script>
+		<!-- //cart-js -->
+		<script>
+			$(document).ready(function () {
+				$(".button-log a").click(function () {
+					$(".overlay-login").fadeToggle(200);
+					$(this).toggleClass('btn-open').toggleClass('btn-close');
+				});
+			});
+			$('.overlay-close1').on('click', function () {
+				$(".overlay-login").fadeToggle(200);
+				$(".button-log a").toggleClass('btn-open').toggleClass('btn-close');
+				open = false;
+			});
+		</script>
+		<!-- carousel -->
+		<!-- price range (top products) -->
+		<script src="{% static 'web_js/jquery-ui.js' %}"></script>
+		<script>
+			//<![CDATA[ 
+			$(window).load(function () {
+				$("#slider-range").slider({
+					range: true,
+					min: 0,
+					max: 9000,
+					values: [50, 6000],
+					slide: function (event, ui) {
+						$("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
+					}
+				});
+				$("#amount").val("$" + $("#slider-range").slider("values", 0) + " - $" + $("#slider-range").slider("values", 1));
+
+			}); //]]>
+		</script>
+		<!-- //price range (top products) -->
+
+		<script src="{% static 'web_js/owl.carousel.js' %}"></script>
+		<script>
+			$(document).ready(function () {
+			})
+		</script>
+
+		<!-- //end-smooth-scrolling -->
+
+		<!-- single -->
+		<script src="{% static 'web_js/imagezoom.js' %}"></script>
+		<!-- single -->
+		<!-- script for responsive tabs -->
+		<script src="{% static 'web_js/easy-responsive-tabs.js' %}"></script>
+		<script>
+			$(document).ready(function () {
+				$('#horizontalTab').easyResponsiveTabs({
+					type: 'default', //Types: default, vertical, accordion           
+					width: 'auto', //auto or any width like 600px
+					fit: true, // 100% fit in a container
+					closed: 'accordion', // Start closed if in accordion view
+					activate: function (event) { // Callback function if tab is switched
+						var $tab = $(this);
+						var $info = $('#tabInfo');
+						var $name = $('span', $info);
+						$name.text($tab.text());
+						$info.show();
+					}
+				});
+				$('#verticalTab').easyResponsiveTabs({
+					type: 'vertical',
+					width: 'auto',
+					fit: true
+				});
+			});
+		</script>
+		<!-- FlexSlider -->
+		<script src="{% static 'web_js/jquery.flexslider.js' %}"></script>
+		<script>
+			// Can also be used with $(document).ready()
+			$(window).load(function () {
+				$('.flexslider1').flexslider({
+					animation: "slide",
+					controlNav: "thumbnails"
+				});
+			});
+		</script>
+		<!-- //FlexSlider-->
+
+		<!-- dropdown nav -->
+		<script>
+			$(document).ready(function () {
+				$(".dropdown").hover(
+					function () {
+						$('.dropdown-menu', this).stop(true, true).slideDown("fast");
+						$(this).toggleClass('open');
+					},
+					function () {
+						$('.dropdown-menu', this).stop(true, true).slideUp("fast");
+						$(this).toggleClass('open');
+					}
+				);
+			});
+		</script>
+		<!-- //dropdown nav -->
+	<script src="{% static 'web_js/move-top.js' %}"></script>
+    <script src="{% static 'web_js/easing.js' %}"></script>
+    <script>
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event) {
+                event.preventDefault();
+                $('html,body').animate({
+                    scrollTop: $(this.hash).offset().top
+                }, 900);
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+
+            $().UItoTop({
+                easingType: 'easeOutQuart'
+            });
+
+            $(window).on("load", function () {
+			    getSliderData();
+			    getSingleData();
+			    getReview();
+		  	});
+
+		$("#selQTY").change(function() {
+			var lclAmt = ($("#productPrice").text().trim()).substring(1);
+			var lclTotalAmt = ($("#selQTY").val() * lclAmt).toFixed(2);
+			// alert(lclTotalAmt);
+			$("#txtTotalAmt").text("₹"+lclTotalAmt);
+		});
+
+	$("#btn_submit").click(function (e) {
+	    //verification
+
+	    if ($("#txtName").val().trim().length < 1) {
+	        alert("Please Enter Name");
+	        $("#txtName").focus();
+	        return false;
+	    }
+
+	    if ($("#txtEmail").val().trim().length < 1) {
+	        alert("Please Enter Email");
+	        $("#txtEmail").focus();
+	        return false;
+	    }
+
+	    if (!validateEmail($("#txtEmail").val())) {
+	        alert("Please Enter Valid Email");
+	        $("#txtEmail").focus();
+	        return false;
+	    }
+
+	    if ($("#txtMessage").val().trim().length < 1) {
+	        alert("Please Enter Message");
+	        $("#txtMessage").focus();
+	        return false;
+	    }
+	    
+	    var formData = new FormData();
+	    formData.append("csrfmiddlewaretoken", $('input[name=csrfmiddlewaretoken]').val());
+	    formData.append("txtName", $("#txtName").val());
+	    formData.append("txtEmail", $("#txtEmail").val());
+	    formData.append("txtMessage", $("#txtMessage").val());
+
+	    formData.append("action", "notification");
+
+	    $.ajax({
+	      beforeSend: function () {
+	        // $(".btn .spinner-border").show();
+	        $("#btn_submit").attr("disabled", true);
+	      },
+	      url: "/submit_review/",
+	      type: "POST",
+	      data: formData,
+	      processData: false,
+	      contentType: false,
+	      success: function (result) {
+	          alert("Review Submitted Successfully");
+	          $("#txtName").val('');
+	          $("#txtEmail").val('');
+	          $("#txtMessage").val('');
+	        
+	      },
+	      error: function (request, error) {
+	        console.error(error);
+	      },
+	      complete: function () {
+	        // $(".btn .spinner-border").hide();
+	        $("#btn_submit").attr("disabled", false);
+	      },
+	    });
+	  });
+
+		$("#cart").click(function() {
+
+			var formData = new FormData();
+			var lclAmt = ($("#txtTotalAmt").text().trim()).substring(1);
+		    formData.append("csrfmiddlewaretoken", $('input[name=csrfmiddlewaretoken]').val());
+		    formData.append("selQTY", $("#selQTY").val());
+		    formData.append("txtTotalAmt", parseInt(lclAmt));
+
+		    $.ajax({
+		      beforeSend: function () {
+		        // $(".btn .spinner-border").show();
+		        $("#cart").attr("disabled", true);
+		      },
+		      url: "/add_cart/",
+		      type: "POST",
+		      data: formData,
+		      processData: false,
+		      contentType: false,
+		      success: function (result) {
+		          if(result == '0') {
+		          	window.location = "/register/";
+		          } else {
+		          	window.location = "/cart/";
+		          }
+		          
+		      },
+		      error: function (request, error) {
+		        console.error(error);
+		      },
+		      complete: function () {
+		        // $(".btn .spinner-border").hide();
+		        $("#cart").attr("disabled", false);
+		      },
+		    });
+		});
+
+		$("#checkout").click(function() {
+
+			var formData = new FormData();
+		    formData.append("csrfmiddlewaretoken", $('input[name=csrfmiddlewaretoken]').val());
+		    formData.append("selQTY", $("#selQTY").val());
+		    $.ajax({
+		      beforeSend: function () {
+		        // $(".btn .spinner-border").show();
+		        $("#btn_submit").attr("disabled", true);
+		      },
+		      url: "/check_checkout/",
+		      type: "POST",
+		      data: formData,
+		      processData: false,
+		      contentType: false,
+		      success: function (result) {
+		          if(result == '0') {
+		          	window.location = "/register/";
+		          } else {
+		          	window.location = "/checkout/?id="+result+"&qty="+$("#selQTY").val();
+		          }
+		          
+		      },
+		      error: function (request, error) {
+		        console.error(error);
+		      },
+		      complete: function () {
+		        // $(".btn .spinner-border").hide();
+		        $("#btn_submit").attr("disabled", false);
+		      },
+		    });
+		});
+	});
+    </script>
+    <!--// end-smoth-scrolling -->
+
+
+		<script src="{% static 'web_js/bootstrap.js' %}"></script>
+		<script src="{% static 'web_js/web_login.js' %}"></script>
+		<script src="{% static 'web_js/web_profile.js' %}"></script>
+		<!-- js file -->
+
+		<script type="text/javascript">
+
+			function getSliderData() {
+
+				var formData = new FormData();
+	  			formData.append("csrfmiddlewaretoken", $('input[name=csrfmiddlewaretoken]').val());
+
+	            $.ajax({
+
+	              url: "/get_home_slider/",
+	              type: "POST",
+	              data: formData,
+	              processData: false,
+	              contentType: false,
+	              success: function(response) {
+
+	                // var lclJSON = JSON.parse(response);
+
+	                for(var i = 0; i < response.length; i++) {
+
+	                	var imgSub = response[i].ap_image.substring(20);
+	                	
+	                	$("#slider").append('<div class="item"><div class="gd-box-info text-center"><div class="product-men women_two bot-gd"><div class="product-googles-info slide-img googles"><div class="men-pro-item"><div class="men-thumb-item"> <img src="{{baseURL}}'+imgSub+'" class="img-fluid" alt="" height="150" width="150"><div class="men-cart-pro"><div class="inner-men-cart-pro"> <a href="/single?id='+response[i].ap_id+'" class="link-product-add-cart">Quick View</a></div></div> <span class="product-new-top">New</span></div><div class="item-info-product"><div class="info-product-price"><div class="grid_meta"><div class="product_price"><h4> <a href="/single?id='+response[i].ap_id+'">'+response[i].ap_name+'</a></h4><span style="color: red;">'+response[i].ap_created_name+'</span><div class="grid-price mt-2"> <span class="money ">₹'+response[i].ap_rate+'</span></div></div></div></div></div></div></div></div></div></div>');
+	                }
+
+						$('.owl-carousel').owlCarousel({
+							loop: true,
+							margin: 10,
+							responsiveClass: true,
+							responsive: {
+								0: {
+									items: 1,
+									nav: true
+								},
+								600: {
+									items: 2,
+									nav: false
+								},
+								900: {
+									items: 3,
+									nav: false
+								},
+								1000: {
+									items: 4,
+									nav: true,
+									loop: false,
+									margin: 20
+								}
+							}
+						})
+					}
+
+              });
+
+		}
+
+		function getSingleData() {
+
+				var formData = new FormData();
+	  			formData.append("csrfmiddlewaretoken", $('input[name=csrfmiddlewaretoken]').val());
+
+	            $.ajax({
+
+	              url: "/get_single_item/",
+	              type: "POST",
+	              data: formData,
+	              processData: false,
+	              contentType: false,
+	              success: function(response) {
+
+	              	var imgSub = response[0].ap_image.substring(20);
+
+	                $("#description").text(response[0].ap_description);
+	                $("#productName").text(response[0].ap_name);
+	                $("#vendorName").text(response[0].ap_created_name);
+	                $("#productPrice").text("₹"+response[0].ap_rate);
+	                $("#txtTotalAmt").text("₹"+response[0].ap_rate);
+	                $("#txtTotalAmt").text("₹"+response[0].ap_rate);
+	                $("#imageDiv").append('<ul class="slides"><li data-thumb="{{baseURL}}'+imgSub+'"><div class="thumb-image"> <img src="{{baseURL}}'+imgSub+'" data-imagezoom="true" class="img-fluid" alt=" "></div></li></ul>');
+				  }
+
+              });
+
+		}
+
+		function getReview() {
+
+			var formData = new FormData();
+  			formData.append("csrfmiddlewaretoken", $('input[name=csrfmiddlewaretoken]').val());
+
+            $.ajax({
+
+              url: "/get_review/",
+              type: "POST",
+              data: formData,
+              processData: false,
+              contentType: false,
+              success: function(response) {
+              	for(var i = 0; i < response.length; i++) {
+                	$("#review").append('<div><span style="color: red; font-size: 20px;"><b>'+response[i].rv_name+'</b></span></div><div>&emsp;&emsp;&emsp;&emsp;'+response[i].rv_message+'</div>');
+                }
+			  }
+
+          	});
+
+		}
+
+			function alphaOnly(event) {
+			  var key = event.which ? event.which : event.keyCode;
+			  return (
+			    (key >= 65 && key <= 90) ||
+			    key == 8 ||
+			    (event.charCode >= 97 && event.charCode <= 122) ||
+			    event.charCode == 32
+			  );
+			}
+
+			function validateEmail(paramEmailID) {
+			  var filter = /^[0-9a-z.]+\@[a-z0-9]+\.[a-zA-z0-9]{2,4}$/;
+			  
+			  if (filter.test(paramEmailID)) {
+			    return true;
+			  } else {
+			    return false;
+			  }
+			}
+
+			function isNumberKey(evt) {
+			  var charCode = (evt.which) ? evt.which : event.keyCode;
+			  if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+			      return false;
+			  }
+			  return true;
+			}
+		</script>
+</body>
+
+</html>
